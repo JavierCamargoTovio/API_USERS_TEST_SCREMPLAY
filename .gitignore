@@ -1,0 +1,11 @@
+/.gradle/
+/.idea/
+/bin/
+/test-output/
+/build/
+/target/
+/history/
+/out/
+/.scannerwork/
+/.sonar/
+mqjms.log.0
