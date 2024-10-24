@@ -5,7 +5,7 @@ Feature: listar los usuarios
 
   @getListUsers
   Scenario Outline: listar usuarios exitosamente
-    Given desea consultar la API de user
+    Given que el tester desea consultar usuarios en la API de users
     When realizo la solicitud por el metodo GET para obtener la pagina "<numero>" de usuarios
     Then se debera obtener la repuesta exitosa de la lista de usuario
     Examples:

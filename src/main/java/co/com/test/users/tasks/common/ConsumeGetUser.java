@@ -11,19 +11,19 @@ import static co.com.test.users.model.headers.GetHeaderModel.headersDefault;
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-public class GetUser_Task implements Task {
+public class ConsumeGetUser implements Task {
     private final String endpointResource;
     private final Map<String, String> parameters;
 
 
-    public GetUser_Task(String endpointResource, Map<String, String> parameters) {
+    public ConsumeGetUser(String endpointResource, Map<String, String> parameters) {
         this.endpointResource = endpointResource;
         this.parameters = parameters;
 
     }
 
-    public static GetUser_Task with(String endpointResource, Map<String, String> parameters) {
-        return instrumented(GetUser_Task.class, endpointResource, parameters);
+    public static ConsumeGetUser with(String endpointResource, Map<String, String> parameters) {
+        return instrumented(ConsumeGetUser.class, endpointResource, parameters);
     }
 
     @Step("{0} consume service with the GET")

@@ -7,10 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 
-public class UserData {
+public class GetUserData {
 
-    public static Map<String, Object> dataQuery;
-
+    private static Map<String, Object> dataQuery = new HashMap<>();
 
     public static Map<String, Object> getDataServiceUser() {
         return dataQuery;
@@ -23,6 +22,6 @@ public class UserData {
         dataQuery.put("first_name", data.get(ConstantPositionManager.TWO_POSITION));
         dataQuery.put("last_name", data.get(ConstantPositionManager.THREE_POSITION));
         dataQuery.put("avatar", data.get(ConstantPositionManager.FOUR_POSITION));
-        UserData.dataQuery = dataQuery;
+        GetUserData.dataQuery = dataQuery;
     }
 }

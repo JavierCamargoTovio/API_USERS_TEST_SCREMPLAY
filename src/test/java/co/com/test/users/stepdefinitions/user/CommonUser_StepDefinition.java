@@ -1,37 +1,40 @@
 package co.com.test.users.stepdefinitions.user;
 
-import co.com.test.users.questions.ValidateUserService;
-import co.com.test.users.stepdefinitions.Hook;
-import co.com.test.users.tasks.common.UserServiceData;
+import co.com.test.users.questions.TheQueryFieldsAndValuesAre;
+import co.com.test.users.tasks.common.GetUserServiceData;
 import co.com.test.users.util.exceptions.AssertionsServices;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.GivenWhenThen;
+import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 
+import static co.com.test.users.stepdefinitions.Actors.JAVIER;
+import static co.com.test.users.util.constants.ConstantServices.THE_REST_API_BASE_URL;
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class CommonUser_StepDefinition {
-    public static final Actor JAVIER = Actor.named("Javier");
 
-    @Given("desea consultar la API de user")
-    public void deseaConsultarLaAPIDeUser() {
-        theActorCalled(JAVIER.toString()).whoCan(CallAnApi.at(Hook.getEnvironmentBase()));
+    @Given("que el tester desea crear/consultar/actualizar usuario(s) en la API de users")
+    public void preparingAPI()  {
+        OnStage.theActorCalled(JAVIER.toString());
+        theActorInTheSpotlight()
+                .whoCan(CallAnApi.at(JAVIER.recall(THE_REST_API_BASE_URL)));
     }
 
     @When("define los datos para verificar la consulta del servicio")
     public void defineLosDatosParaVerificarLaConsultaDelServicio(DataTable data) {
-        theActorInTheSpotlight().attemptsTo(UserServiceData.getInformationServiceUser(data.row(0)));
+        theActorInTheSpotlight().attemptsTo(GetUserServiceData.getInformationServiceUser(data.row(0)));
     }
 
     @Then("valido los campos del servicio")
     public void validoLosCamposDelServicio() {
-        theActorInTheSpotlight().should(GivenWhenThen.seeThat(ValidateUserService.expected()).orComplainWith(AssertionsServices.class, AssertionsServices.THE_VALUES_SERVICE_IS_NOT_EXPECTED));
+        theActorInTheSpotlight().should(
+                seeThat(TheQueryFieldsAndValuesAre.expected())
+                        .orComplainWith(AssertionsServices.class, AssertionsServices.THE_VALUES_SERVICE_IS_NOT_EXPECTED));
 
     }
+
 }
