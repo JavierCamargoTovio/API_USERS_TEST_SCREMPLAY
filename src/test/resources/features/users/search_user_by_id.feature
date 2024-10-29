@@ -6,7 +6,7 @@ Feature: Buscar usuario por ID
   @getIdUser @integrationTest
   Scenario Outline: Busqueda de un usuario por id exitosamente
     Given que el tester desea consultar usuario en la API de users
-    When intenta realizar la consulta utilizando el parametro <id>
+    When intenta realizar la consulta utilizando el parametro "<id>"
     And define los datos para verificar la consulta del servicio
       | <id> | <email> | <first_name> | <last_name> | <avatar> |
     Then se debera obtener la repuesta exitosa

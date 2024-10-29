@@ -52,7 +52,6 @@ dependencies {
     implementation "net.serenity-bdd:serenity-junit:${serenityVersion}"
     testImplementation "net.serenity-bdd:serenity-cucumber:${serenityVersion}"
     implementation "net.serenity-bdd:serenity-screenplay:${serenityVersion}"
-    implementation "net.serenity-bdd:serenity-screenplay-webdriver:${serenityVersion}"
     implementation "net.serenity-bdd:serenity-ensure:${serenityVersion}"
     implementation "net.serenity-bdd:serenity-single-page-report:${serenityVersion}"
     implementation "net.serenity-bdd:serenity-screenplay-rest:$serenityVersion"

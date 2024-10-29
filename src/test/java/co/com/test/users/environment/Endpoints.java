@@ -12,6 +12,7 @@ public class Endpoints {
         public static final String GET_USER_BY_ID = setEndpoint("getUserId");
         public static final String CREATE_USER= setEndpoint("createUser");
         public static final String UPDATE_USER= setEndpoint("updateUser");
+        public static final String DELETE_USER= setEndpoint("deleteUser");
 
         private Endpoints() {
             //Nothing

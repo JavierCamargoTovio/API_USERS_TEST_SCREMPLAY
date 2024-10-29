@@ -17,7 +17,7 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class CommonUser_StepDefinition {
 
-    @Given("que el tester desea crear/consultar/actualizar usuario(s) en la API de users")
+    @Given("que el tester desea crear/consultar/actualizar/eliminar usuario(s) en la API de users")
     public void preparingAPI()  {
         OnStage.theActorCalled(JAVIER.toString());
         theActorInTheSpotlight()
@@ -26,7 +26,7 @@ public class CommonUser_StepDefinition {
 
     @When("define los datos para verificar la consulta del servicio")
     public void defineLosDatosParaVerificarLaConsultaDelServicio(DataTable data) {
-        theActorInTheSpotlight().attemptsTo(GetUserServiceData.getInformationServiceUser(data.row(0)));
+       theActorInTheSpotlight().attemptsTo(GetUserServiceData.getInformationServiceUser(data.row(0)));
     }
 
     @Then("valido los campos del servicio")

@@ -17,9 +17,9 @@ import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class SearchUserById_StepDefinition {
 
-    @When("intenta realizar la consulta utilizando el parametro {int}")
-    public void intentaRealizarLaConsultaUtilizandoElParametro(Integer id) {
-        theActorInTheSpotlight().attemptsTo(ConsumeGetUser.with(Endpoints.GET_USER_BY_ID, parametroId(id.toString())));
+    @When("intenta realizar la consulta utilizando el parametro {string}")
+    public void intentaRealizarLaConsultaUtilizandoElParametro(String id) {
+        theActorInTheSpotlight().attemptsTo(ConsumeGetUser.with(Endpoints.GET_USER_BY_ID, parametroId(id)));
     }
 
     @Then("se debera obtener la repuesta exitosa")

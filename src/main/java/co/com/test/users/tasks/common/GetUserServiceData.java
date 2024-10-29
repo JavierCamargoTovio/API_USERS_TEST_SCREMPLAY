@@ -5,6 +5,7 @@ import net.serenitybdd.screenplay.Task;
 
 import java.util.List;
 
+
 import static co.com.test.users.model.dto.GetUserData.consultServiceWithTheFollowingData;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 

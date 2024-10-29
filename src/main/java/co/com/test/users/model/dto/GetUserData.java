@@ -15,6 +15,7 @@ public class GetUserData {
         return dataQuery;
     }
 
+
     public static void consultServiceWithTheFollowingData(List<String> data) {
         Map<String, Object> dataQuery = new HashMap<>();
         dataQuery.put("id", data.get(ConstantPositionManager.ZERO_POSITION));
@@ -24,4 +25,6 @@ public class GetUserData {
         dataQuery.put("avatar", data.get(ConstantPositionManager.FOUR_POSITION));
         GetUserData.dataQuery = dataQuery;
     }
+
+
 }
