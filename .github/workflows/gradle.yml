@@ -64,3 +64,10 @@ jobs:
     # See: https://github.com/gradle/actions/blob/main/dependency-submission/README.md
     - name: Generate and submit dependency graph
       uses: gradle/actions/dependency-submission@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+      
+    - name: Test Report Generation
+      uses: actions/upload-artifact@v4
+      if: success() || failure()
+      with:
+          name: Serenity Report                 # Name of the folder
+          path: target/site/serenity/           # Path to test results
