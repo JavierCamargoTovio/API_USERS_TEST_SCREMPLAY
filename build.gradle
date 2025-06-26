@@ -80,11 +80,6 @@ test {
     systemProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
 }
 
-sourceSets {
-    test {
-        java.srcDir 'src/test/java'
-        resources.srcDir 'src/test/resources'
-    }
-}
+
 gradle.startParameter.continueOnFailure = true
 test.finalizedBy(aggregate)
