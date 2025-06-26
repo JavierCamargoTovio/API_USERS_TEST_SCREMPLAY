@@ -1,5 +1,6 @@
 package co.com.test.users.stepdefinitions.user;
 
+import co.com.test.users.interactions.ExecuteGetPathParameter;
 import co.com.test.users.questions.common.Schema;
 import co.com.test.users.questions.common.StatusCodeResponse;
 import co.com.test.users.tasks.common.ConsumeGetUser;
@@ -19,7 +20,9 @@ public class SearchUserById_StepDefinition {
 
     @When("intenta realizar la consulta utilizando el parametro {string}")
     public void intentaRealizarLaConsultaUtilizandoElParametro(String id) {
-        theActorInTheSpotlight().attemptsTo(ConsumeGetUser.with(Endpoints.GET_USER_BY_ID, parametroId(id)));
+        //theActorInTheSpotlight().attemptsTo(ConsumeGetUser.with(Endpoints.GET_USER_BY_ID, "2"));
+        theActorInTheSpotlight().attemptsTo(ExecuteGetPathParameter.service(Endpoints.GET_USER_BY_ID, id));
+        System.out.println("El id es: " + parametroId(id));
     }
 
     @Then("se debera obtener la repuesta exitosa")

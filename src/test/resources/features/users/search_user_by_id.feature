@@ -14,4 +14,4 @@ Feature: Buscar usuario por ID
     Examples:
       | id | email                    | first_name | last_name | avatar                                  |
       | 2  | janet.weaver@reqres.in   | Janet      | Weaver    | https://reqres.in/img/faces/2-image.jpg |
-      #| 7  | michael.lawson@reqres.in | Michael    | Lawson    | https://reqres.in/img/faces/7-image.jpg |
+      | 7  | michael.lawson@reqres.in | Michael    | Lawson    | https://reqres.in/img/faces/7-image.jpg |

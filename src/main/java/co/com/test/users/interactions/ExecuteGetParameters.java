@@ -51,6 +51,8 @@ public class ExecuteGetParameters implements Interaction {
         return new GetServiceBuilder(resource);
     }
 
+
+
     public static class GetServiceBuilder {
         private final String resource;
 
