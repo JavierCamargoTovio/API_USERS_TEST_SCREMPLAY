@@ -70,6 +70,15 @@ dependencies {
 
 }
 
+serenity {
+    // Specify the root package of any JUnit acceptance tests
+    testRoot = "co.com.test/users.runners.user"
+
+    // Specify the root directory of any Cucumber feature files
+    requirementsBaseDir = "src/test/resources/features/users"
+}
+
+
 test {
     String tiporegresion = System.properties['Tiporegresion']
     println "Tipo de regresion recibido por parametro: " + tiporegresion
@@ -82,15 +91,16 @@ test {
             maxParallelForks = 1
             break
 
-    testLogging.showStandardStreams = true
-    testLogging {
-        events "passed", "skipped", "failed", "standardOut", "standardError"
+            testLogging.showStandardStreams = true
+            testLogging {
+                events "passed", "skipped", "failed", "standardOut", "standardError"
+            }
+            systemProperties System.getProperties()
+            systemProperty "cucumber.options", System.getProperty("cucumber.options")
+
     }
-    systemProperties System.getProperties()
-    systemProperty "cucumber.options", System.getProperty("cucumber.options")
 
+    System.getProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
+    gradle.startParameter.continueOnFailure = true
+    test.finalizedBy(aggregate)
 }
-
-System.getProperty "cucumber.filter.tags", System.getProperty("cucumber.filter.tags")
-gradle.startParameter.continueOnFailure = true
-test.finalizedBy(aggregate)
