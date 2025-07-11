@@ -1,8 +1,7 @@
 pipeline {
-
+   agent any
        parameters {
-           string(defaultValue: "continuous2", description: 'Agente en el cual se ejecutaran las pruebas', name: 'AGENTE_EJECUCION')
-           text defaultValue: '@Integracion', description: 'TIPO DE PRUEBA FUNCIONAL A EJECUTAR', name: 'TIPO_PRUEBA'
+                   text defaultValue: '@Integracion', description: 'TIPO DE PRUEBA FUNCIONAL A EJECUTAR', name: 'TIPO_PRUEBA'
        }
 
        agent {
