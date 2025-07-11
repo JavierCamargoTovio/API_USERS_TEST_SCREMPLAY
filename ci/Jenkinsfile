@@ -1,0 +1,80 @@
+pipeline {
+    agent any
+
+    tools {
+        jdk 'Java 17'
+        gradle 'gradle'
+    }
+
+    environment {
+        SCM_URL = "https://github.com/JavierCamargoTovio/API_USERS_TEST_SCREMPLAY.git"
+        SCM_BRANCH = "main"
+        NOMBRE_PROYECTO_GIT = "Test Project Automation Users"
+        RECIBE = "javiercamargot22@gmail.com"
+    }
+
+    parameters {
+            string(defaultValue: "continuous2", description: 'Agente en el cual se ejecutaran las pruebas', name: 'AGENTE_EJECUCION')
+            text defaultValue: '@Integracion', description: 'TIPO DE PRUEBA FUNCIONAL A EJECUTAR', name: 'TIPO_PRUEBA'
+        }
+    stages {
+        stage('Clonar proyecto') {
+            steps {
+                bat 'git config --global --replace-all http.sslVerify false'
+                git url: "${SCM_URL}", branch: "${SCM_BRANCH}"
+            }
+        }
+
+        stage('Ejecutar pruebas') {
+            steps {
+                script {
+                    if (params.TEST_RUNNER?.trim()) {
+                        echo "Ejecutando test específico: ${params.Integracion}"
+                        bat "gradlew.bat clean test --tests ${params.Integracion} aggregate"
+                    } else {
+                        bat "gradlew.bat clean test aggregate"
+                    }
+                }
+            }
+        }
+
+        stage('Publicar reporte Serenity') {
+            steps {
+                publishHTML([
+                    reportDir: 'target\\site\\serenity',
+                    reportFiles: 'index.html',
+                    reportName: 'Reporte Serenity',
+                    keepAll: true,
+                    allowMissing: true,
+                    alwaysLinkToLastBuild: true
+                ])
+            }
+        }
+
+        stage('Notificar Resultado') {
+            steps {
+                script {
+                    def fecha = new Date().format("dd/MM/yyyy HH:mm:ss")
+                    def mensaje = "Resultado de pruebas (${NOMBRE_PROYECTO_GIT}) - ${fecha}: ${currentBuild.result ?: 'SUCCESS'}"
+                    emailext(
+                        subject: "Resultado Jenkins - ${currentBuild.result ?: 'SUCCESS'}",
+                        body: mensaje,
+                        to: "${RECIBE}"
+                    )
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            echo '📌 Pipeline finalizado.'
+        }
+        success {
+            echo '✅ La ejecución fue exitosa.'
+        }
+        failure {
+            echo '❌ La ejecución falló.'
+        }
+    }
+}

@@ -5,6 +5,7 @@ package co.com.test.users.util.enums;
 public enum HttpStatusCodes {
     OK(200),
     CREATED(201),
+    DELETE(204),
     FORBIDDEN(403),
     NOT_FOUND(404),
     METHOD_NOT_ALLOWED(405),

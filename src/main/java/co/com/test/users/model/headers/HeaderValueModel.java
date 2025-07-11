@@ -4,6 +4,7 @@ public enum HeaderValueModel {
     ACCEPT("Accept", "application/json"),
     //AUTHORIZATION("Authorization", "Basic YWRtaW46cGFzc3dvcmQxMjM="),
     CONTENT_TYPE("Content-Type", "application/json"),
+    API_KEY("x-api-key", "reqres-free-v1"),
     COOKIE("Cookie", "");
 
     private String header;

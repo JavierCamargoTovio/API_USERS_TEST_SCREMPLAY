@@ -1,6 +1,6 @@
 package co.com.test.users.interactions;
 
-import co.com.test.users.tasks.ExecuteGetHeader;
+import co.com.test.users.tasks.ConsumeExecuteGetHeader;
 import io.restassured.http.ContentType;
 import net.serenitybdd.rest.SerenityRest;
 import net.serenitybdd.screenplay.Actor;
@@ -21,8 +21,8 @@ public class GetWithHeader implements Interaction {
         this.authorization = authorization;
     }
 
-    public static ExecuteGetHeader service(String resource, String authorization, String token ) {
-        return new ExecuteGetHeader(resource, authorization, token);
+    public static ConsumeExecuteGetHeader service(String resource, String authorization, String token ) {
+        return new ConsumeExecuteGetHeader(resource, authorization, token);
     }
 
     @Step("{0} executes a GET on the resource #resource with header")

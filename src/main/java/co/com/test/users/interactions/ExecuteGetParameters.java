@@ -18,6 +18,7 @@ public class ExecuteGetParameters implements Interaction {
     private final String resource;
     private final Map<String, String> headers;
     private final Map<String, String> parameters;
+
     public ExecuteGetParameters(String resource, Map<String, String> parameters, Map<String, String> headers) {
         this.resource = resource;
         this.parameters = parameters;
@@ -49,6 +50,8 @@ public class ExecuteGetParameters implements Interaction {
     public static GetServiceBuilder service(String resource) {
         return new GetServiceBuilder(resource);
     }
+
+
 
     public static class GetServiceBuilder {
         private final String resource;

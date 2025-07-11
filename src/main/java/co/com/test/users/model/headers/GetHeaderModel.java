@@ -15,4 +15,10 @@ public class GetHeaderModel {
         return headers;
     }
 
+    public static Map<String, String> headersApiKey() {
+        headers.put(HeaderValueModel.API_KEY.getHeader(), HeaderValueModel.API_KEY.getValue());
+        headers.put(HeaderValueModel.ACCEPT.getHeader(), HeaderValueModel.ACCEPT.getValue());
+        return headers;
+    }
+
 }

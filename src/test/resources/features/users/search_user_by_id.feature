@@ -3,10 +3,10 @@ Feature: Buscar usuario por ID
   Quiero obtener la informacion de un usuario por su id
   Para confirmar que le funcionamiento del servicio corresponde al esperado
 
-  @getIdUser
+  @getIdUser @integrationTest
   Scenario Outline: Busqueda de un usuario por id exitosamente
-    Given desea consultar la API de user
-    When intenta realizar la consulta utilizando el parametro <id>
+    Given que el tester desea consultar usuario en la API de users
+    When intenta realizar la consulta utilizando el parametro "<id>"
     And define los datos para verificar la consulta del servicio
       | <id> | <email> | <first_name> | <last_name> | <avatar> |
     Then se debera obtener la repuesta exitosa

@@ -7,19 +7,19 @@ import net.thucydides.core.annotations.Step;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
-public class ExecuteGetHeader implements Task {
+public class ConsumeExecuteGetHeader implements Task {
     private final String endpointResource;
     private  final String token;
     private final String authorization;
 
-    public ExecuteGetHeader(String endpointResource, String token, String authorization) {
+    public ConsumeExecuteGetHeader(String endpointResource, String token, String authorization) {
         this.endpointResource = endpointResource;
         this.token = token;
         this.authorization = authorization;
     }
 
-    public static ExecuteGetHeader service(String endpointResource, String authorization, String token) {
-        return instrumented(ExecuteGetHeader.class, endpointResource, authorization,token);
+    public static ConsumeExecuteGetHeader service(String endpointResource, String authorization, String token) {
+        return instrumented(ConsumeExecuteGetHeader.class, endpointResource, authorization,token);
     }
 
     @Override
