@@ -1,5 +1,4 @@
 pipeline {
-   pipeline{
 
        parameters {
            string(defaultValue: "continuous2", description: 'Agente en el cual se ejecutaran las pruebas', name: 'AGENTE_EJECUCION')
