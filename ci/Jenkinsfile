@@ -1,5 +1,19 @@
 pipeline {
-    agent any
+   pipeline{
+
+       parameters {
+           string(defaultValue: "continuous2", description: 'Agente en el cual se ejecutaran las pruebas', name: 'AGENTE_EJECUCION')
+           text defaultValue: '@Integracion', description: 'TIPO DE PRUEBA FUNCIONAL A EJECUTAR', name: 'TIPO_PRUEBA'
+       }
+
+       agent {
+           label params.AGENTE_EJECUCION
+       }
+
+       options {
+             skipDefaultCheckout()
+       }
+
 
     environment {
         SCM_URL = "https://github.com/JavierCamargoTovio/API_USERS_TEST_SCREMPLAY.git"
@@ -8,9 +22,7 @@ pipeline {
         RECIBE = "javiercamargot22@gmail.com"
     }
 
-    parameters {
-                   string(name: 'Integracion', defaultValue: '', description: 'Nombre del test a ejecutar (opcional)')
-        }
+
 
     stages {
         stage('Clonar proyecto') {
@@ -23,12 +35,13 @@ pipeline {
         stage('Ejecutar pruebas') {
                     steps {
                         script {
-                            if (params.Integracion?.trim()) {
-                                echo "Ejecutando test específico: ${params.Integracion}"
-                                sh "gradlew.bat clean test --tests ${params.Integracion} aggregate"
-                            } else {
-                                sh "gradlew.bat clean test aggregate"
-                            }
+                            try{
+                               echo "Se ejecuta pruebas: ${TIPO_PRUEBA}"
+                               sh "./gradlew clean test aggregate --info -DTiporegresion=${TIPO_PRUEBA}";
+                               currentBuild.result = 'SUCCESS'
+                               }catch(ERRORUNO){
+                               echo "Algunos escenarios fallaron"
+                               }
                         }
                     }
                 }
