@@ -39,19 +39,33 @@ pipeline {
                 }
 
 
-        stage('Publicar reporte Serenity') {
-            steps {
-                publishHTML([
-                    reportDir: 'target\\site\\serenity',
-                    reportFiles: 'index.html',
-                    reportName: 'Reporte Serenity',
-                    keepAll: true,
-                    allowMissing: true,
-                    alwaysLinkToLastBuild: true
-                ])
-                 echo 'Reporte Html realizado con exito'
-            }
-        }
+        stage('Generar evidencia') {
+                    steps {
+                        script {
+                            catchError {
+                                dir("${workspace}") {
+                                sh 'ls -a'
+                                    publishHTML([
+                                        allowMissing         : false,
+                                        alwaysLinkToLastBuild: true,
+                                        keepAll              : true,
+                                        reportDir            : "target/site/serenity",
+                                        reportFiles          : 'index.html',
+                                        reportName           : 'Evidencias Pruebas Aceptacion',
+                                        reportTitles         : ''
+                                    ])
+                                    echo 'Reporte Html realizado con exito'
+
+
+
+
+                                }
+                            }
+
+
+                        }
+                    }
+                }
 
    }
     post {
