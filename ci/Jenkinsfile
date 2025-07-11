@@ -29,7 +29,7 @@ pipeline {
                         script {
                             try{
                                echo "Se ejecuta pruebas: ${TIPO_PRUEBA}"
-                               sh "./gradlew clean test aggregate --info -DTiporegresion=${TIPO_PRUEBA}";
+                               bat "gradle clean test aggregate --info -DTiporegresion=${TIPO_PRUEBA}";
                                currentBuild.result = 'SUCCESS'
                                }catch(ERRORUNO){
                                echo "Algunos escenarios fallaron"
@@ -63,6 +63,18 @@ pipeline {
 
    }
     post {
+         success {
+                   publishHTML([
+                      allowMissing: false,
+                      alwaysLinkToLastBuild: false,
+                      keepAll: false,
+                      reportDir: 'target/site/serenity/',
+                      reportFiles: 'index.html',
+                      reportName: 'Serenity Report - post',
+                      reportTitles: '',
+                      useWrapperFileDirectly: true])
+                }
+
         always {
             echo '📌 Pipeline finalizado.'
         }
