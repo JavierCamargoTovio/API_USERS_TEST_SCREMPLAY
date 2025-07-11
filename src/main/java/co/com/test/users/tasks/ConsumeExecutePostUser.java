@@ -2,6 +2,7 @@ package co.com.test.users.tasks;
 
 import co.com.test.users.interactions.ExecutePost;
 import co.com.test.users.model.dto.CreateAndUpdateUserData;
+import co.com.test.users.model.dto.CreateUserDTO;
 import co.com.test.users.model.dto.GetDataUserModel;
 import co.com.test.users.model.dto.UserModel;
 import net.serenitybdd.screenplay.Actor;
@@ -10,9 +11,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static co.com.test.users.model.dto.CreateAndUpdateUserData.getCreateAndUpdateDataServiceUser;
+import static co.com.test.users.model.headers.GetHeaderModel.headersApiKey;
 import static co.com.test.users.model.headers.GetHeaderModel.headersDefault;
 import static co.com.test.users.util.common.JsonUtils.parseJsonObject;
-import static co.com.test.users.util.constants.ConstantServices.KEY_USER_ID;
+import static co.com.test.users.util.constants.ConstantServices.*;
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 
@@ -20,31 +22,40 @@ public class ConsumeExecutePostUser implements Task {
     private static final Logger LOGGER = LoggerFactory.getLogger(ConsumeExecutePostUser.class.getSimpleName());
 
     private final String endpointResource;
+    private final String name;
+    private final String job;
 
 
-    public ConsumeExecutePostUser(String endpointResource) {
+    public ConsumeExecutePostUser(String endpointResource, String name, String job) {
         this.endpointResource = endpointResource;
+        this.name = name;
+        this.job = job;
     }
-    public static ConsumeExecutePostUser withInformationRequested(String endpointResource) {
-        return instrumented(ConsumeExecutePostUser.class, endpointResource);
+
+
+    public static ConsumeExecutePostUser withInformationRequested(String endpointResource,  String name, String job) {
+        return instrumented(ConsumeExecutePostUser.class, endpointResource, name, job);
     }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        actor.attemptsTo(ExecutePost.with(endpointResource,
-                headersDefault(),
-                new UserModel.UserBuilder()
-                        .isWithName(GetDataUserModel.getDataFieldsUserModel(getCreateAndUpdateDataServiceUser(), "name"))
-                        .isWithJob(GetDataUserModel.getDataFieldsUserModel(getCreateAndUpdateDataServiceUser(), "job"))
-                        .build()
+        CreateUserDTO usuario = new CreateUserDTO();
+        usuario.setName(name);
+        usuario.setJob(job);
 
-        ));
+        actor.attemptsTo(ExecutePost.with(endpointResource,
+                headersApiKey(),
+             usuario));
+
         LOGGER.info("Response Body Is: ");
         lastResponse().getBody().prettyPeek();
 
         String userId = parseJsonObject(lastResponse().getBody().asString()).get("id").getAsString();
+        String name = parseJsonObject(lastResponse().getBody().asString()).get("name").getAsString();
         LOGGER.info("User Id is: {}", userId);
-        Actor.named("Javier").remember(KEY_USER_ID, userId);
+        actor.remember(KEY_USER_ID, userId);
+        actor.remember(KEY_USER_NAME, name);
+
     }
 
 

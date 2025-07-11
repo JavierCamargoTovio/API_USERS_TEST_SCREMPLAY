@@ -1,5 +1,6 @@
 package co.com.test.users.interactions;
 
+import co.com.test.users.model.dto.CreateUserDTO;
 import co.com.test.users.model.dto.UserModel;
 import co.com.test.users.util.exceptions.AssertionsServices;
 import net.serenitybdd.rest.SerenityRest;
@@ -17,20 +18,26 @@ import static net.serenitybdd.rest.SerenityRest.lastResponse;
 
 public class ExecutePost implements Interaction {
 
-    private final String resource;
+    private final CreateUserDTO usuario;
 
-    private UserModel body;
+    private final String resource;
 
     private final Map<String, String> headers;
 
-    public ExecutePost(String resource, Map<String, String> headers, UserModel body) {
+    public ExecutePost(CreateUserDTO usuario, String resource, Map<String, String> headers) {
+        this.usuario = usuario;
         this.resource = resource;
-        this.body = body;
         this.headers = headers;
     }
 
-    public static ExecutePost with(String resource, Map<String, String> headers, UserModel body) {
-        return Tasks.instrumented(ExecutePost.class, resource, headers,body);
+    public ExecutePost(String resource, Map<String, String> headers, CreateUserDTO usuario) {
+        this.resource = resource;
+        this.usuario = usuario;
+        this.headers = headers;
+    }
+
+    public static ExecutePost with(String resource, Map<String, String> headers, CreateUserDTO usuario) {
+        return Tasks.instrumented(ExecutePost.class, resource, headers,usuario);
     }
 
     @Override
@@ -40,7 +47,7 @@ public class ExecutePost implements Interaction {
         actor.attemptsTo(Post.to(resource)
                 .with(request -> request
                         .headers(headers)
-                        .body(body)
+                        .body(usuario)
                         .relaxedHTTPSValidation()
                         .log()
                         .all()

@@ -71,6 +71,17 @@ dependencies {
 }
 
 test {
+    String tiporegresion = System.properties['Tiporegresion']
+    println "Tipo de regresion recibido por parametro: " + tiporegresion
+    systemProperty "Tiporegresion", tiporegresion
+    switch (tiporegresion) {
+        case "@Integracion":
+            useJUnit()
+            include('**/CreateUserRunner*')
+
+            maxParallelForks = 1
+            break
+
     testLogging.showStandardStreams = true
     testLogging {
         events "passed", "skipped", "failed", "standardOut", "standardError"
