@@ -53,7 +53,7 @@ pipeline {
                                         reportTitles         : ''
                                     ])
                                     echo 'Reporte Html realizado con exito'
-                                }
+
                             }
 
 
