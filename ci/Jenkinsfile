@@ -46,6 +46,8 @@ pipeline {
                     }
                 }
 
+                }
+
 
         stage('Publicar reporte Serenity') {
             steps {
