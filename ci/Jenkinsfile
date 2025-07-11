@@ -29,7 +29,7 @@ pipeline {
                         script {
                             try{
                                echo "Se ejecuta pruebas: ${TIPO_PRUEBA}"
-                               bat "gradle.bat clean test aggregate --info -DTiporegresion=${TIPO_PRUEBA}";
+                               bat "gradlew.bat clean test aggregate --info -DTiporegresion=${TIPO_PRUEBA}";
                                currentBuild.result = 'SUCCESS'
                                }catch(ERRORUNO){
                                echo "Algunos escenarios fallaron"
