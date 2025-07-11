@@ -4,13 +4,6 @@ pipeline {
                    text defaultValue: '@Integracion', description: 'TIPO DE PRUEBA FUNCIONAL A EJECUTAR', name: 'TIPO_PRUEBA'
        }
 
-       agent {
-           label params.AGENTE_EJECUCION
-       }
-
-       options {
-             skipDefaultCheckout()
-       }
 
 
     environment {
