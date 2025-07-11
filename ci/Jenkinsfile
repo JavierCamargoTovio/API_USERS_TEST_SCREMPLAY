@@ -69,17 +69,7 @@ pipeline {
             echo '📌 Pipeline finalizado.'
         }
         success {
-        publishHTML([
-                              allowMissing: false,
-                              alwaysLinkToLastBuild: false,
-                              keepAll: false,
-                              reportDir: 'target/site/serenity/',
-                              reportFiles: 'index.html',
-                              reportName: 'Serenity Report',
-                              reportTitles: '',
-                              useWrapperFileDirectly: true
-                              ])
-            echo '✅ La ejecución fue exitosa.'
+               echo '✅ La ejecución fue exitosa.'
         }
         failure {
             echo '❌ La ejecución falló.'
