@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        jdk 'Java 17'
-        gradle 'gradle'
-    }
-
     environment {
         SCM_URL = "https://github.com/JavierCamargoTovio/API_USERS_TEST_SCREMPLAY.git"
         SCM_BRANCH = "main"
@@ -30,9 +25,9 @@ pipeline {
                 script {
                     if (params.TEST_RUNNER?.trim()) {
                         echo "Ejecutando test específico: ${params.Integracion}"
-                        bat "gradlew.bat clean test --tests ${params.Integracion} aggregate"
+                        sh "./gradlew clean test aggregate --tests ${params.Integracion} aggregate"
                     } else {
-                        bat "gradlew.bat clean test aggregate"
+                        sh "./gradlew clean test aggregate"
                     }
                 }
             }
