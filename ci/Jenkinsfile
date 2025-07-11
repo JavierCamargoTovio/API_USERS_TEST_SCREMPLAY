@@ -49,7 +49,7 @@ pipeline {
                                         allowMissing         : false,
                                         alwaysLinkToLastBuild: true,
                                         keepAll              : true,
-                                        reportDir            : "target/site/serenity",
+                                        reportDir            : 'target\\site\\serenity',
                                         reportFiles          : 'index.html',
                                         reportName           : 'Evidencias Pruebas Aceptacion',
                                         reportTitles         : ''
