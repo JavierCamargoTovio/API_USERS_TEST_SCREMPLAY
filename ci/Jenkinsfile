@@ -98,7 +98,7 @@ stage('Generar evidencia') {
             echo '❌ La ejecución falló.'
         }
     }
-}
+
 
 def enviarCorreo(resultadoTest) {
     def asunto = ""
@@ -433,4 +433,5 @@ def enviarCorreo(resultadoTest) {
             body: "${body}",
             to: "${EMAIL_DEVELOPERS}"
         )
+}
 }
