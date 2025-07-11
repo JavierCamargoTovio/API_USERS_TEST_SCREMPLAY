@@ -434,4 +434,3 @@ def enviarCorreo(resultadoTest) {
             to: "${EMAIL_DEVELOPERS}"
         )
 
-}
