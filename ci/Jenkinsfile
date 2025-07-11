@@ -16,6 +16,7 @@ pipeline {
 
 
     stages {
+
         stage('Clonar proyecto') {
             steps {
                 bat 'git config --global --replace-all http.sslVerify false'
@@ -51,7 +52,7 @@ pipeline {
             }
         }
 
-stage('Generar evidencia') {
+        stage('Generar evidencia') {
             steps {
                 script {
                     catchError {
@@ -74,6 +75,7 @@ stage('Generar evidencia') {
 
                 }
             }
+        }
         }
 
 
