@@ -29,7 +29,7 @@ pipeline {
                         script {
                             try{
                                echo "Se ejecuta pruebas: ${TIPO_PRUEBA}"
-                               bat "gradlew.bat clean test aggregate --info -DTiporegresion=${TIPO_PRUEBA}";
+                               sh "gradlew clean test aggregate --info -DTiporegresion=${TIPO_PRUEBA}";
                                currentBuild.result = 'SUCCESS'
                                }catch(ERRORUNO){
                                echo "Algunos escenarios fallaron"
@@ -43,9 +43,7 @@ pipeline {
                     steps {
                         script {
                             catchError {
-                                dir("${workspace}") {
-                                sh 'ls -a'
-                                    publishHTML([
+                                   publishHTML([
                                         allowMissing         : false,
                                         alwaysLinkToLastBuild: true,
                                         keepAll              : true,
@@ -55,10 +53,6 @@ pipeline {
                                         reportTitles         : ''
                                     ])
                                     echo 'Reporte Html realizado con exito'
-
-
-
-
                                 }
                             }
 
