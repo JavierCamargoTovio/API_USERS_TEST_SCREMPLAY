@@ -25,9 +25,9 @@ pipeline {
                         script {
                             if (params.Integracion?.trim()) {
                                 echo "Ejecutando test específico: ${params.Integracion}"
-                                bat "gradlew.bat clean test --tests ${params.Integracion} aggregate"
+                                sh "gradlew.bat clean test --tests ${params.Integracion} aggregate"
                             } else {
-                                bat "gradlew.bat clean test aggregate"
+                                sh "gradlew.bat clean test aggregate"
                             }
                         }
                     }
