@@ -20,7 +20,7 @@ pipeline {
             }
         }
 
-        tage('Ejecutar pruebas') {
+        stage('Ejecutar pruebas') {
                     steps {
                         script {
                             if (params.Integracion?.trim()) {
