@@ -5,6 +5,8 @@ import net.serenitybdd.screenplay.Question;
 
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 
+import net.serenitybdd.core.Serenity;
+
 
 public class StatusCodeResponse implements Question<Boolean> {
 
@@ -25,6 +27,7 @@ public class StatusCodeResponse implements Question<Boolean> {
                         response -> response.statusCode(statusCode)
                 )
         );
+        Serenity.recordReportData().withTitle("HTTP Status Code").andContents(String.valueOf(statusCode));
         return true;
     }
 }
