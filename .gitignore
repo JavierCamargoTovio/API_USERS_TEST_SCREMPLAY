@@ -4,6 +4,9 @@
 /test-output/
 /build/
 /target/
+/.vscode/
+/.settings/
+/.project
 /history/
 /out/
 /.scannerwork/

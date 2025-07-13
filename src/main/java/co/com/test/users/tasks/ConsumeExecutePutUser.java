@@ -1,7 +1,6 @@
 package co.com.test.users.tasks;
 
 import co.com.test.users.interactions.ExecutePut;
-import co.com.test.users.model.dto.CreateAndUpdateUserData;
 import co.com.test.users.model.dto.GetDataUserModel;
 import co.com.test.users.model.dto.UserModel;
 import com.jayway.jsonpath.DocumentContext;
@@ -9,10 +8,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.Map;
-
-
 import static co.com.test.users.model.dto.CreateAndUpdateUserData.getCreateAndUpdateDataServiceUser;
 import static co.com.test.users.util.common.JsonUtils.parseDocumentContextFromString;
 import static co.com.test.users.util.constants.ConstantServices.RESPONSE_BODY;

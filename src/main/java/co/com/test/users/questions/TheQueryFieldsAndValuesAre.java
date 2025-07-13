@@ -6,7 +6,6 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import org.hamcrest.Matchers;
 
-import static co.com.test.users.model.dto.CreateAndUpdateUserData.getCreateAndUpdateDataServiceUser;
 import static co.com.test.users.util.constants.ConstantServices.*;
 import static net.serenitybdd.screenplay.rest.questions.ResponseConsequence.seeThatResponse;
 

@@ -16,41 +16,33 @@ public class ConsumeExecutePostUser implements Task {
     private static final Logger LOGGER = LoggerFactory.getLogger(ConsumeExecutePostUser.class.getSimpleName());
 
     private final String endpointResource;
-    private final String name;
-    private final String job;
+    private final CreateUserDTO usuario;
 
-
-    public ConsumeExecutePostUser(String endpointResource, String name, String job) {
+    public ConsumeExecutePostUser(String endpointResource, CreateUserDTO usuario) {
         this.endpointResource = endpointResource;
-        this.name = name;
-        this.job = job;
+        this.usuario = usuario;
     }
 
-
-    public static ConsumeExecutePostUser withInformationRequested(String endpointResource,  String name, String job) {
-        return instrumented(ConsumeExecutePostUser.class, endpointResource, name, job);
+    public static ConsumeExecutePostUser withInformationRequested(String endpointResource, CreateUserDTO usuario) {
+        return instrumented(ConsumeExecutePostUser.class, endpointResource, usuario);
     }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        CreateUserDTO usuario = new CreateUserDTO();
-        usuario.setName(name);
-        usuario.setJob(job);
 
         actor.attemptsTo(ExecutePost.with(endpointResource,
                 headersApiKey(),
-             usuario));
+                usuario));
 
-        LOGGER.info("Response Body Is: ");
+        LOGGER.info("Response Body Is: {}", lastResponse().getBody().asString());
         lastResponse().getBody().prettyPeek();
 
         String userId = parseJsonObject(lastResponse().getBody().asString()).get("id").getAsString();
-        String name = parseJsonObject(lastResponse().getBody().asString()).get("name").getAsString();
+    
         LOGGER.info("User Id is: {}", userId);
         actor.remember(KEY_USER_ID, userId);
-        actor.remember(KEY_USER_NAME, name);
+       
 
     }
-
 
 }
