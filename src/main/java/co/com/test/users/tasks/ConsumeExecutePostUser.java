@@ -1,18 +1,12 @@
 package co.com.test.users.tasks;
 
 import co.com.test.users.interactions.ExecutePost;
-import co.com.test.users.model.dto.CreateAndUpdateUserData;
 import co.com.test.users.model.dto.CreateUserDTO;
-import co.com.test.users.model.dto.GetDataUserModel;
-import co.com.test.users.model.dto.UserModel;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import static co.com.test.users.model.dto.CreateAndUpdateUserData.getCreateAndUpdateDataServiceUser;
 import static co.com.test.users.model.headers.GetHeaderModel.headersApiKey;
-import static co.com.test.users.model.headers.GetHeaderModel.headersDefault;
 import static co.com.test.users.util.common.JsonUtils.parseJsonObject;
 import static co.com.test.users.util.constants.ConstantServices.*;
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
