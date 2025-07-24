@@ -61,7 +61,24 @@ pipeline {
                     }
                 }
 
+              stage('Notificar Resultado') {
+                steps {
+                 script {
+                    def fecha = new Date().format("dd/MM/yyyy HH:mm:ss")
+                    def mensaje = "Resultado de pruebas (${NOMBRE_PROYECTO_GIT}) - ${fecha}: ${currentBuild.result ?: 'SUCCESS'}"
+                    emailext(
+                        subject: "Resultado Jenkins - ${currentBuild.result ?: 'SUCCESS'}",
+                        body: mensaje,
+                        to: "${RECIBE}"
+                    )
+                }
+            }
+        }
+
+
    }
+
+
     post {
 
 
