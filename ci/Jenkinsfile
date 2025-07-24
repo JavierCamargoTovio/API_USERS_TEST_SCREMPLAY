@@ -282,7 +282,7 @@ def enviarCorreo(resultadoTest) {
                                                                                                       <td class="p30-15 brl" style="padding: 20px; border-radius:10px 0px 0px 10px;" bgcolor="#ffffff" height="100">
                                                                                                           <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                                                                                               <tr>
-                                                                                                                  <td class="h3 pb20" style="color:#445942; font-family:'Poppins', Arial,sans-serif; font-size:14px; line-height:24px; text-align:center; padding-bottom:20px;">
+                                                                                                                  <td class="h3 pb20" style="color:#ffffff; font-family:'Poppins', Arial,sans-serif; font-size:14px; line-height:24px; text-align:center; padding-bottom:20px;">
                                                                                                                       Conozca el estado de la ejecución en Jenkins.
                                                                                                                   </td>
                                                                                                               </tr>
@@ -348,7 +348,7 @@ def enviarCorreo(resultadoTest) {
                                                                                                 <tr>
                                                                                                     <td class="text-button" style="background:#191970; color:#ffffff; font-family:'Poppins', Arial,sans-serif; font-size:14px; line-height:18px; padding:12px 30px; text-align:center; border-radius:22px;">
                                                                                                         <a href="${urlEvidencia}" target="_blank" class="link-white" style="color:#ffffff; text-decoration:none;">
-                                                                                                            <span class="link-white" style="color:#191970; text-decoration:none;">
+                                                                                                            <span class="link-white" style="color:#ffffff; text-decoration:none;">
                                                                                                                 <b>Ir al informe</b>
                                                                                                             </span>
                                                                                                         </a>
