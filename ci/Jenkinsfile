@@ -27,7 +27,7 @@ pipeline {
             }
         }
 
-        stage('Ejecutar pruebas') {
+           stage('Ejecutar pruebas') {
                     steps {
                         script {
                             try{
@@ -39,10 +39,10 @@ pipeline {
                                }
                         }
                     }
-                }
+           }
 
 
-        stage('Generar evidencia') {
+           stage('Generar evidencia') {
                     steps {
                         script {
                             catchError {
@@ -58,14 +58,12 @@ pipeline {
                                     echo 'Reporte Html realizado con exito'
 
                             }
-
-
                         }
                     }
-                }
+           }
 
 
-              stage('Notificar'){
+           stage('Notificar'){
                    steps{
                      catchError{
                        script{
@@ -73,11 +71,11 @@ pipeline {
                        }
                      }
                    }
-                 }
+           }
 
-             }
+   }
 
-
+ }
 
 def enviarCorreo(resultadoTest) {
     def asunto = ""
