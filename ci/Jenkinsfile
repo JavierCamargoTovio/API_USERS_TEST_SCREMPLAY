@@ -11,7 +11,8 @@ pipeline {
     environment {
         SCM_URL = "https://github.com/JavierCamargoTovio/API_USERS_TEST_SCREMPLAY.git"
         SCM_BRANCH = "main"
-        NOMBRE_PROYECTO_GIT = "Test Project Automation Users"
+        NOMBRE_PROYECTO = "Test Project Automation Users"
+        NOMBRE_TRANSACCION = "Test Project Automation Users"
         EMAIL_DEVELOPERS = "javiercamargot22@gmail.com"
     }
 
