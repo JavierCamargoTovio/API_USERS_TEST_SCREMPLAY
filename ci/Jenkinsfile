@@ -10,7 +10,7 @@ pipeline {
         SCM_URL = "https://github.com/JavierCamargoTovio/API_USERS_TEST_SCREMPLAY.git"
         SCM_BRANCH = "main"
         NOMBRE_PROYECTO_GIT = "Test Project Automation Users"
-        RECIBE = "javiercamargot22@gmail.com"
+        EMAIL_DEVELOPERS = "javiercamargot22@gmail.com"
     }
 
 
