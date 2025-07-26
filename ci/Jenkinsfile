@@ -165,51 +165,62 @@ def enviarCorreo(resultadoTest) {
                                   justify-content: center;
                                   /* Centra horizontal */
                                   align-items: center;
-                              }
-
-                              a {
-                                  text-decoration: none;
-                                  color: #fff;
-                                  font-size: medium;
-                                  text-align: center;
-                              }
 
 
-
-                              p {
-                                  font-family: 'Poppins', Arial, sans-serif;
-                                  font-size: 14px;
-                              }
-
+                                  p {
+                                      font-family: 'Poppins', Arial, sans-serif;
+                                      font-size: 14px;
+                                  }
 
 
-                              .box {
-                                  background: #fff;
-                                  display: flex;
-                                  padding: 20px 20px;
-                                  margin: 5px;
-                                  border-radius: 8px;
-                                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                                  color: #fff;
-                                  justify-content: center;
-                                  /* Centra horizontal */
-                                  align-items: center;
-                              }
+                                  .contenido {
+                                      text-align: center;
+                                      background: #edeff0;
+                                      padding: 40px;
+                                      border-radius: 10px;
+                                      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                                  }
 
-                              .botones {
-                                  background-color: #191970;
-                                  color: #fff;
-                                  display: flex;
-                                  border-radius: 10px;
-                                  width: 150px;
-                                  height: 50px;
-                                  border: none;
-                                  text-align: center;
-                                  align-items: center;
-                                  justify-content: center;
-                                  margin-right: 5px;
+                                  .box {
+                                      background: #fff;
+                                      display: flex;
+                                      align-items: center;
+                                      justify-content: center;
+                                      padding: 20px;
+                                      margin: 5px auto;
+                                      border-radius: 8px;
+                                      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                                      gap: 20px;
+                                      /* Espacio entre botón e imagen */
+                                      max-width: 400px;
+                                  }
 
-                              }
+                                  .botones {
+                                      background-color: #191970;
+                                      color: #fff;
+                                      display: flex;
+                                      align-items: center;
+                                      justify-content: center;
+                                      border-radius: 10px;
+                                      width: 150px;
+                                      height: 50px;
+                                      border: none;
+                                  }
+
+                                  .botones a {
+                                      text-decoration: none;
+                                      color: #fff;
+                                      font-size: medium;
+                                  }
+
+                                  .box img {
+                                      height: 50px;
+                                      /* igual altura que el botón */
+                                      width: auto;
+                                      /* mantiene proporción */
+                                      object-fit: contain;
+                                      /* ajusta dentro del tamaño dado */
+                                  }
                           </style>
                       </head>
 
@@ -241,10 +252,8 @@ def enviarCorreo(resultadoTest) {
                                       <div class="botones">
                                           <a href="${env.BUILD_URL}" class="boton">Ir a Jenkins</a>
                                       </div>
-                                      <img src="https://i.imgur.com/5zc24YS.png" border="0" />
+                                      <img src="https://i.imgur.com/5zc24YS.png" alt="Logo Jenkins" />
                                   </div>
-
-
 
                               </div>
 
@@ -252,19 +261,14 @@ def enviarCorreo(resultadoTest) {
                                   <p>Conozca el informe del resultado de la ejecución con Serenity.</p>
                               </div>
 
-                              <div>
 
-                                  <div class="box">
-
-                                      <div class="botones">
-                                          <a href="${urlEvidencia}" class="boton">Ir a Serenity</a>
-                                      </div>
-                                      <img src="https://i.imgur.com/zuIbUrp.png" border="0" />
-
+                              <div class="box">
+                                  <div class="botones">
+                                      <a href="${urlEvidencia}">Ir a Serenity</a>
                                   </div>
-
+                                  <img src="https://i.imgur.com/zuIbUrp.png" alt="Logo Serenity">
                               </div>
-                      </body>
+                       </body>
 
                       </html>
                                   """
