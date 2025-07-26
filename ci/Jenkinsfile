@@ -92,11 +92,11 @@ def enviarCorreo(resultadoTest) {
 
         if (resultadoTest == "SUCCESS") {
             asunto = "${ecosistema} - EJECUCION EXITOSA "
-            resultado = """<b class="execTitle" style="color:#032d9f;border:3px solid ;border-radius: 9px; padding:0px 12px 0 12px;">EJECUCION EXITOSA</b>"""
+            resultado = "EJECUCION EXITOSA"
             hero = "Todo va bien en la transacci&oacute;n. Para m&aacute;s detalles remitase a los enlaces en la parte inferior de este correo."
         } else {
             asunto = "${ecosistema}  - EJECUCION FALLIDA "
-            resultado = """<b class="execTitle" style="color:#c90000;border:3px solid #c90000;border-radius: 9px; padding:0px 12px 0 12px;">EJECUCION FALLIDA</b>"""
+            resultado = "EJECUCION FALLIDA"
             hero = "Se ha encontrado un error en la transacci&oacute;n. Para m&aacute;s detalles remitase a los enlaces en la parte inferior de este correo."
         }
 
@@ -155,12 +155,12 @@ def enviarCorreo(resultadoTest) {
                               .logo {
                                   width: "50%";
                                   background-color: rgb(246, 246, 245);
-
+                                  text-align: center;
                               }
 
                               a {
                                   text-decoration: none;
-                                  color: #f0f0f0;
+                                  color: #fff;
                                   font-size: medium;
                               }
 
@@ -179,9 +179,22 @@ def enviarCorreo(resultadoTest) {
                                   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
                                   color: #edeff0;
                               }
-                              p{
-                                font-family: 'Poppins', Arial, sans-serif;
-                                font-size: 14px;
+
+                              p {
+                                  font-family: 'Poppins', Arial, sans-serif;
+                                  font-size: 14px;
+                              }
+
+                              .imagenes {
+                                  width: 50%;
+                                  height: 50%;
+                                  align-items: center;
+                              }
+
+                              .botones {
+                                  width: 50%;
+                                  height: 50%;
+                                  align-items: center;
                               }
                           </style>
                       </head>
@@ -205,12 +218,19 @@ def enviarCorreo(resultadoTest) {
                               <div>
                                   <p>Conozca el estado de la ejecución en Jenkins.</p>
                               </div>
+
                               <div class="logo">
 
-                                  <button>
-                                      <a href="${env.BUILD_URL}" class="boton">Ir a Jenkins</a>
-                                  </button>
-                                  <img src="https://i.imgur.com/5zc24YS.png" border="0" />
+                                  <div class="imagenes">
+                                      <img src="https://i.imgur.com/5zc24YS.png" border="0" />
+                                  </div>
+
+                                  <div class="botonnes">
+                                      <button>
+                                          <a href="${env.BUILD_URL}" class="boton">Ir a Jenkins</a>
+                                      </button>
+                                  </div>
+
                               </div>
 
                               <div>
@@ -219,12 +239,19 @@ def enviarCorreo(resultadoTest) {
 
                               <div class="logo">
 
-                                  <button>
-                                      <a href="${urlEvidencia}" class="boton">Ir a Serenity</a>
-                                  </button>
+                                  <div class="imagenes">
+                                      <img src="https://i.imgur.com/zuIbUrp.png" border="0" />
+                                  </div>
+
+                                  <div class="botonnes">
+                                      <button>
+                                          <a href="${urlEvidencia}" class="boton">Ir a Serenity</a>
+
+                                      </button>
+                                  </div>
 
 
-                                  <img src="https://i.imgur.com/zuIbUrp.png" border="0" />
+
 
                               </div>
                       </body>
