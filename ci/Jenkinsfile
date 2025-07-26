@@ -143,6 +143,10 @@ def enviarCorreo(resultadoTest) {
                                   padding-bottom: 15px;
                                   word-break: break-all;
                               }
+                              h1{
+                              color: #191970;
+                              font-family: 'Poppins';
+                              }
 
                               .text-hero {
                                   color: #008080;
@@ -165,6 +169,7 @@ def enviarCorreo(resultadoTest) {
                                   text-decoration: none;
                                   color: #fff;
                                   font-size: medium;
+                                  text-align: center;
                               }
 
 
@@ -178,27 +183,30 @@ def enviarCorreo(resultadoTest) {
 
                               .box {
                                   background: #fff;
+                                  display: flex;
                                   padding: 20px 20px;
                                   margin: 5px;
                                   border-radius: 8px;
                                   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
                                   color: #edeff0;
-                                   justify-content: center;
+                                  justify-content: center;
                                   /* Centra horizontal */
                                   align-items: center;
                               }
 
-                               button {
+                              .botones {
                                   background-color: #191970;
+                                  display: flex;
                                   border-radius: 10px;
                                   width: 150px;
                                   height: 50px;
                                   border: none;
                                   text-align: center;
                                   align-items: center;
+                                  justify-content: center;
+                                  margin-right: 5px;
+
                               }
-
-
                           </style>
                       </head>
 
@@ -225,14 +233,14 @@ def enviarCorreo(resultadoTest) {
                               <div class="logo">
 
                                   <div class="box">
+
+                                      <div class="botones">
+                                          <a href="${env.BUILD_URL}" class="boton">Ir a Jenkins</a>
+                                      </div>
                                       <img src="https://i.imgur.com/5zc24YS.png" border="0" />
                                   </div>
 
-                                  <div class="box">
-                                      <button>
-                                          <a href="${env.BUILD_URL}" class="boton">Ir a Jenkins</a>
-                                      </button>
-                                  </div>
+
 
                               </div>
 
@@ -243,14 +251,12 @@ def enviarCorreo(resultadoTest) {
                               <div class="logo">
 
                                   <div class="box">
-                                      <img src="https://i.imgur.com/zuIbUrp.png" border="0" />
-                                  </div>
 
-                                  <div class="box">
-                                      <button>
+                                      <div class="botones">
                                           <a href="${urlEvidencia}" class="boton">Ir a Serenity</a>
+                                      </div>
+                                      <img src="https://i.imgur.com/zuIbUrp.png" border="0" />
 
-                                      </button>
                                   </div>
 
                               </div>
