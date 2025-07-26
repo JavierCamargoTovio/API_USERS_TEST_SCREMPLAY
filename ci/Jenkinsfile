@@ -143,9 +143,10 @@ def enviarCorreo(resultadoTest) {
                                   padding-bottom: 15px;
                                   word-break: break-all;
                               }
-                              h1{
-                              color: #191970;
-                              font-family: 'Poppins';
+
+                              h1 {
+                                  color: #191970;
+                                  font-family: 'Poppins';
                               }
 
                               .text-hero {
@@ -158,6 +159,7 @@ def enviarCorreo(resultadoTest) {
 
                               .logo {
                                   width: "100%";
+                                  color: #fff;
                                   display: flex;
                                   background-color: rgb(246, 246, 245);
                                   justify-content: center;
@@ -188,7 +190,7 @@ def enviarCorreo(resultadoTest) {
                                   margin: 5px;
                                   border-radius: 8px;
                                   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                                  color: #edeff0;
+                                  color: #fff;
                                   justify-content: center;
                                   /* Centra horizontal */
                                   align-items: center;
@@ -196,6 +198,7 @@ def enviarCorreo(resultadoTest) {
 
                               .botones {
                                   background-color: #191970;
+                                  color: #fff;
                                   display: flex;
                                   border-radius: 10px;
                                   width: 150px;
@@ -226,11 +229,12 @@ def enviarCorreo(resultadoTest) {
                               <div class="text-hero">
                                   <p> ${hero}</p>
                               </div>
+
                               <div>
                                   <p>Conozca el estado de la ejecución en Jenkins.</p>
                               </div>
 
-                              <div class="logo">
+                              <div>
 
                                   <div class="box">
 
@@ -248,7 +252,7 @@ def enviarCorreo(resultadoTest) {
                                   <p>Conozca el informe del resultado de la ejecución con Serenity.</p>
                               </div>
 
-                              <div class="logo">
+                              <div>
 
                                   <div class="box">
 
