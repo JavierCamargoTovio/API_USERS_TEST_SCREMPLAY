@@ -115,12 +115,12 @@ def enviarCorreo(resultadoTest) {
                                   /* altura de la ventana */
                                   margin: 0;
                                   font-family: Arial, sans-serif;
-                                  background-color: #f0f0f0;
+                                  background-color: #d4d3d3;
                               }
 
                               .contenido {
                                   text-align: center;
-                                  background: #fff;
+                                  background: #edeff0;
                                   padding: 40px;
                                   border-radius: 10px;
                                   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -128,9 +128,9 @@ def enviarCorreo(resultadoTest) {
 
                               .transaccion {
                                   color: #100573e9;
-                                  font-family: 'Segoe UI';
+                                  font-family: 'Poppins';
                                   letter-spacing: 2px;
-                                  font-size: 14px;
+                                  font-size: 16px;
                                   word-wrap: break-word;
                               }
 
@@ -139,9 +139,8 @@ def enviarCorreo(resultadoTest) {
                                   font-family: 'Poppins';
                                   font-size: 18px;
                                   line-height: 34px;
-                                  text-align: left;
+                                  text-align: center;
                                   padding-bottom: 15px;
-                                  max-width: 500px;
                                   word-break: break-all;
                               }
 
@@ -150,12 +149,39 @@ def enviarCorreo(resultadoTest) {
                                   font-family: 'Poppins', Arial, sans-serif;
                                   font-size: 15px;
                                   line-height: 30px;
-                                  text-align: left;
+                                  text-align: center;
                               }
 
                               .logo {
                                   width: "50%";
+                                  background-color: rgb(246, 246, 245);
 
+                              }
+
+                              a {
+                                  text-decoration: none;
+                                  color: #f0f0f0;
+                                  font-size: medium;
+                              }
+
+                              button {
+                                  background-color: #191970;
+                                  border-radius: 10px;
+                                  padding: 10px;
+                                  width: 150px;
+                                  height: 50px;
+                                  border: none;
+                              }
+
+                              h1 {
+                                  background-color: #191970;
+                                  border-radius: 5px;
+                                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                                  color: #edeff0;
+                              }
+                              p{
+                                font-family: 'Poppins', Arial, sans-serif;
+                                font-size: 14px;
                               }
                           </style>
                       </head>
@@ -164,29 +190,39 @@ def enviarCorreo(resultadoTest) {
                           <div class="contenido">
                               <p> ${timeInicioPruebas}</p>
                               <h1> ${resultado}</h1>
+
                               <span class="transaccion">
-                                  <b>TRANSACCION: <br>${NOMBRE_PROYECTO}</b>
+                                  <h4>TRANSACCION: ${NOMBRE_PROYECTO}<h4>
                               </span>
 
                               <div class="job">
-                                  <p>Job: '${env.JOB_NAME} [${env.BUILD_NUMBER}]'</p>
+                                  <h4>Job: '${env.JOB_NAME} [${env.BUILD_NUMBER}]'</h4>
                               </div>
 
                               <div class="text-hero">
                                   <p> ${hero}</p>
                               </div>
-                              <div class="logo">
+                              <div>
                                   <p>Conozca el estado de la ejecución en Jenkins.</p>
-                                  <a href="${env.BUILD_URL}" class="boton">Ir a Jenkins</a>
-                                  </a>
+                              </div>
+                              <div class="logo">
+
+                                  <button>
+                                      <a href="${env.BUILD_URL}" class="boton">Ir a Jenkins</a>
+                                  </button>
                                   <img src="https://i.imgur.com/5zc24YS.png" border="0" />
+                              </div>
+
+                              <div>
+                                  <p>Conozca el informe del resultado de la ejecución con Serenity.</p>
                               </div>
 
                               <div class="logo">
 
-                                  <p>Conozca el informe del resultado de la ejecución con Serenity.</p>
-                                  <a href="${urlEvidencia}" class="boton">Ir a Serenity</a>
-                                  </a>
+                                  <button>
+                                      <a href="${urlEvidencia}" class="boton">Ir a Serenity</a>
+                                  </button>
+
 
                                   <img src="https://i.imgur.com/zuIbUrp.png" border="0" />
 
