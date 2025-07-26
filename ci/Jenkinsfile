@@ -153,9 +153,12 @@ def enviarCorreo(resultadoTest) {
                               }
 
                               .logo {
-                                  width: "50%";
+                                  width: "100%";
+                                  display: flex;
                                   background-color: rgb(246, 246, 245);
-                                  text-align: center;
+                                  justify-content: center;
+                                  /* Centra horizontal */
+                                  align-items: center;
                               }
 
                               a {
@@ -164,38 +167,38 @@ def enviarCorreo(resultadoTest) {
                                   font-size: medium;
                               }
 
-                              button {
-                                  background-color: #191970;
-                                  border-radius: 10px;
-                                  padding: 10px;
-                                  width: 150px;
-                                  height: 50px;
-                                  border: none;
-                              }
 
-                              h1 {
-                                  background-color: #191970;
-                                  border-radius: 5px;
-                                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                                  color: #edeff0;
-                              }
 
                               p {
                                   font-family: 'Poppins', Arial, sans-serif;
                                   font-size: 14px;
                               }
 
-                              .imagenes {
-                                  width: 50%;
-                                  height: 50%;
+
+
+                              .box {
+                                  background: #fff;
+                                  padding: 20px 20px;
+                                  margin: 5px;
+                                  border-radius: 8px;
+                                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                                  color: #edeff0;
+                                   justify-content: center;
+                                  /* Centra horizontal */
                                   align-items: center;
                               }
 
-                              .botones {
-                                  width: 50%;
-                                  height: 50%;
+                               button {
+                                  background-color: #191970;
+                                  border-radius: 10px;
+                                  width: 150px;
+                                  height: 50px;
+                                  border: none;
+                                  text-align: center;
                                   align-items: center;
                               }
+
+
                           </style>
                       </head>
 
@@ -221,11 +224,11 @@ def enviarCorreo(resultadoTest) {
 
                               <div class="logo">
 
-                                  <div class="imagenes">
+                                  <div class="box">
                                       <img src="https://i.imgur.com/5zc24YS.png" border="0" />
                                   </div>
 
-                                  <div class="botonnes">
+                                  <div class="box">
                                       <button>
                                           <a href="${env.BUILD_URL}" class="boton">Ir a Jenkins</a>
                                       </button>
@@ -239,19 +242,16 @@ def enviarCorreo(resultadoTest) {
 
                               <div class="logo">
 
-                                  <div class="imagenes">
+                                  <div class="box">
                                       <img src="https://i.imgur.com/zuIbUrp.png" border="0" />
                                   </div>
 
-                                  <div class="botonnes">
+                                  <div class="box">
                                       <button>
                                           <a href="${urlEvidencia}" class="boton">Ir a Serenity</a>
 
                                       </button>
                                   </div>
-
-
-
 
                               </div>
                       </body>
