@@ -181,46 +181,7 @@ def enviarCorreo(resultadoTest) {
                                       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
                                   }
 
-                                  .box {
-                                      background: #fff;
-                                      display: flex;
-                                      align-items: center;
-                                      justify-content: center;
-                                      padding: 20px;
-                                      margin: 5px auto;
-                                      border-radius: 8px;
-                                      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                                      gap: 20px;
-                                      /* Espacio entre botón e imagen */
-                                      max-width: 400px;
-                                  }
 
-                                  .botones {
-                                      background-color: #191970;
-                                      color: #fff;
-                                      display: flex;
-                                      align-items: center;
-                                      justify-content: center;
-                                      border-radius: 10px;
-                                      width: 150px;
-                                      height: 50px;
-                                      border: none;
-                                  }
-
-                                  .botones a {
-                                      text-decoration: none;
-                                      color: #fff;
-                                      font-size: medium;
-                                  }
-
-                                  .box img {
-                                      height: 50px;
-                                      /* igual altura que el botón */
-                                      width: auto;
-                                      /* mantiene proporción */
-                                      object-fit: contain;
-                                      /* ajusta dentro del tamaño dado */
-                                  }
                           </style>
                       </head>
 
@@ -242,33 +203,142 @@ def enviarCorreo(resultadoTest) {
                               </div>
 
                               <div>
-                                  <p>Conozca el estado de la ejecución en Jenkins.</p>
+                                  <!-- Jenkins -->
+                                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                          <td style="padding-bottom: 10px;">
+                                              <table width="100%" border="0" cellspacing="0" cellpadding="0" dir="rtl"
+                                                  style="direction: rtl;">
+                                                  <tr>
+                                                      <th class="column-dir" dir="ltr" width="245"
+                                                          style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; direction:ltr;background:#f6efe7;border-radius:0px 10px 10px 0px">
+                                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                              <tr>
+                                                                  <td class="fluid-img mbr"
+                                                                      style="font-size:0pt; line-height:0pt; text-align:center;">
+                                                                      <img src="https://i.imgur.com/5zc24YS.png" border="0" alt="" />
+                                                                  </td>
+                                                              </tr>
+                                                          </table>
+                                                      </th>
+                                                      <th class="column-dir" dir="ltr"
+                                                          style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; direction:ltr;">
+                                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                              <tr>
+                                                                  <td class="p30-15 brl"
+                                                                      style="padding: 20px; border-radius:10px 0px 0px 10px;"
+                                                                      bgcolor="#ffffff" height="100">
+                                                                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                          <tr>
+                                                                              <td class="h3 pb20"
+                                                                                  style="color:#445942; font-family:'Poppins', Arial,sans-serif; font-size:14px; line-height:24px; text-align:center; padding-bottom:20px;">
+                                                                                  Conozca el estado de la ejecución en Jenkins.
+                                                                              </td>
+                                                                          </tr>
+
+                                                                          <!-- Button -->
+                                                                          <tr>
+                                                                              <td align="center">
+                                                                                  <table border="0" cellspacing="0" cellpadding="0">
+                                                                                      <tr>
+                                                                                          <td class="text-button"
+                                                                                              style="background:#191970; color:#ffffff; font-family:'Poppins', Arial,sans-serif; font-size:14px; line-height:18px; padding:12px 30px; text-align:center; border-radius:22px;">
+                                                                                              <a href="${env.BUILD_URL}" target="_blank"
+                                                                                                  class="link-white"
+                                                                                                  style="color:#ffffff; text-decoration:none;">
+                                                                                                  <span class="link-white"
+                                                                                                      style="color:#ffffff; text-decoration:none;">
+                                                                                                      <b>Ir a Jenkins</b>
+                                                                                                  </span>
+                                                                                              </a>
+                                                                                          </td>
+                                                                                      </tr>
+                                                                                  </table>
+                                                                              </td>
+                                                                          </tr>
+                                                                          <!-- END Button -->
+                                                                      </table>
+                                                                  </td>
+                                                              </tr>
+                                                          </table>
+                                                      </th>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                  </table>
+                                  <!-- Jenkins -->
+
                               </div>
 
                               <div>
-
-                                  <div class="box">
-
-                                      <div class="botones">
-                                          <a href="${env.BUILD_URL}" class="boton">Ir a Jenkins</a>
-                                      </div>
-                                      <img src="https://i.imgur.com/5zc24YS.png" alt="Logo Jenkins" />
-                                  </div>
-
+                                  <!-- Serenity -->
+                                  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                      <tr>
+                                          <td style="padding-bottom: 10px;">
+                                              <table width="100%" border="0" cellspacing="0" cellpadding="0" dir="rtl"
+                                                  style="direction: rtl;">
+                                                  <tr>
+                                                      <th class="column-dir" dir="ltr" width="245"
+                                                          style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; direction:ltr;background:#f6efe7;border-radius:0px 10px 10px 0px">
+                                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                              <tr>
+                                                                  <td class="fluid-img mbr"
+                                                                      style="font-size:0pt; line-height:0pt; text-align:center;">
+                                                                      <img src="https://i.imgur.com/zuIbUrp.png" title="source: imgur.com"
+                                                                          border="0" alt="serenity.logo" />
+                                                                  </td>
+                                                              </tr>
+                                                          </table>
+                                                      </th>
+                                                      <th class="column-dir" dir="ltr"
+                                                          style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; direction:ltr;">
+                                                          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                              <tr>
+                                                                  <td class="p30-15 brl"
+                                                                      style="padding: 20px; border-radius:10px 0px 0px 10px;"
+                                                                      bgcolor="#ffffff" height="100">
+                                                                      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                                          <tr>
+                                                                              <td class="h3 pb20"
+                                                                                  style="color:#445942; font-family:'Poppins', Arial,sans-serif; font-size:14px; line-height:24px; text-align:center; padding-bottom:20px;">
+                                                                                  Conozca el informe del resultado de la ejecución con Serenity.
+                                                                              </td>
+                                                                          </tr>
+                                                                          <!-- Button -->
+                                                                          <tr>
+                                                                              <td align="center">
+                                                                                  <table border="0" cellspacing="0" cellpadding="0">
+                                                                                      <tr>
+                                                                                          <td class="text-button"
+                                                                                              style="background:#191970; color:#ffffff; font-family:'Poppins', Arial,sans-serif; font-size:14px; line-height:18px; padding:12px 30px; text-align:center; border-radius:22px;">
+                                                                                              <a href="${urlEvidencia}" target="_blank"
+                                                                                                  class="link-white"
+                                                                                                  style="color:#ffffff; text-decoration:none;">
+                                                                                                  <span class="link-white"
+                                                                                                      style="color:#ffffff; text-decoration:none;">
+                                                                                                      <b>Ir al informe</b>
+                                                                                                  </span>
+                                                                                              </a>
+                                                                                          </td>
+                                                                                      </tr>
+                                                                                  </table>
+                                                                              </td>
+                                                                          </tr>
+                                                                          <!-- END Button -->
+                                                                      </table>
+                                                                  </td>
+                                                              </tr>
+                                                          </table>
+                                                      </th>
+                                                  </tr>
+                                              </table>
+                                          </td>
+                                      </tr>
+                                  </table>
+                                  <!-- Serenity -->
                               </div>
-
-                              <div>
-                                  <p>Conozca el informe del resultado de la ejecución con Serenity.</p>
-                              </div>
-
-
-                              <div class="box">
-                                  <div class="botones">
-                                      <a href="${urlEvidencia}">Ir a Serenity</a>
-                                  </div>
-                                  <img src="https://i.imgur.com/zuIbUrp.png" alt="Logo Serenity">
-                              </div>
-                       </body>
+                      </body>
 
                       </html>
                                   """
