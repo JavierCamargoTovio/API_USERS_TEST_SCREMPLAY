@@ -116,6 +116,9 @@ def enviarCorreo(resultadoTest) {
                                   margin: 0;
                                   font-family: Arial, sans-serif;
                                   background-color: #d4d3d3;
+                                  justify-content: center;
+                                  /* Centra horizontal */
+                                  align-items: center;
                               }
 
                               .contenido {
@@ -165,20 +168,12 @@ def enviarCorreo(resultadoTest) {
                                   justify-content: center;
                                   /* Centra horizontal */
                                   align-items: center;
+                                  }
 
 
                                   p {
                                       font-family: 'Poppins', Arial, sans-serif;
                                       font-size: 14px;
-                                  }
-
-
-                                  .contenido {
-                                      text-align: center;
-                                      background: #edeff0;
-                                      padding: 40px;
-                                      border-radius: 10px;
-                                      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
                                   }
 
 
